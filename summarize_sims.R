@@ -89,7 +89,7 @@ p.huds <- plot_sims(hudson.fst, exp.div) +
   ylab(expression(italic("F")[ST]))
 p.wc <- plot_sims(wc.fst, exp.div) +
   ggtitle('B') +
-  ylab(expression(italic("F")[ST]))
+  ylab(expression(italic(theta)))
 
 # export plots
 plot_width <- 4.15
