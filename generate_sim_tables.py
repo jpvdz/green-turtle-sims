@@ -21,7 +21,7 @@ def read_args():
 
     # add arguments to parser
     parser.add_argument('-i', action = 'store', dest='job_id', type = int,
-                        help = 'Number of simulations per parameter set.')
+                        help = 'SLURM array job ID.')
     parser.add_argument('-r', action = 'store', dest='num_sims', type = int,
                         help = 'Number of simulations per parameter set.')
     parser.add_argument('-n', action = 'store', dest='diploid_ne', type = int,
