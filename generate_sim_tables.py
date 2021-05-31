@@ -73,8 +73,8 @@ def simulate_rads_2pop(ne, m, n_samples, mu, bp, n_loci):
 
     # configure populations
     pop_configs = [
-        msprime.PopulationConfiguration(sample_size=n_chrom, initial_size=ne),
-        msprime.PopulationConfiguration(sample_size=n_chrom, initial_size=ne)
+        msprime.PopulationConfiguration(sample_size=n_chrom, initial_size=ne/2),
+        msprime.PopulationConfiguration(sample_size=n_chrom, initial_size=ne/2)
     ]
 
     # define symmetrical migration matrix
