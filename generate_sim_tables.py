@@ -71,7 +71,7 @@ def simulate_rads_2pop(ne, m, n_samples, mu, bp, n_loci):
     # convert diploid sample size to number of chromosomes
     n_chrom = n_samples * 2
 
-    # configure populations
+    # configure populations (ne's divided by 2 to convert to msprime's time scale)
     pop_configs = [
         msprime.PopulationConfiguration(sample_size=n_chrom, initial_size=ne/2),
         msprime.PopulationConfiguration(sample_size=n_chrom, initial_size=ne/2)
@@ -86,7 +86,7 @@ def simulate_rads_2pop(ne, m, n_samples, mu, bp, n_loci):
     # run simulation
     reps = msprime.simulate(population_configurations=pop_configs,
                                migration_matrix=migr_mat,
-                               mutation_rate=mu,
+                               mutation_rate=mu/2, # divide by 2 to convert to msprime's time scale
                                length=bp,
                                num_replicates=n_loci)
 
