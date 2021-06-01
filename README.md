@@ -9,7 +9,7 @@ A collection of scripts used for assessing how many samples are required to reli
 ## Instructions
 The `run_sims.sh` script is a wrapper for `generate_sim_tables.py` that reads a tab-delimited input file (`sim_r1000.txt`) containing different parameter sets on each line and starts a SLURM array job for each parameter set. It can be executed using:
 
-`sbatch --array=1-10 run_sims.sh -i sim_r1000.txt`
+`sbatch --array=1-15 run_sims.sh -i sim_r1000.txt`
 
 The first column in the input file is the *number of simulations* to perform for a set of parameters, the second the *diploid effective population size*, the third the *migration rate*, the fourth the *sample size*, the fifth the *mutation rate*, the sixth the *size of the DNA fragment* and the seventh column is the *number of loci* to simulate.   
 
