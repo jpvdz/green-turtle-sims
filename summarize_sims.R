@@ -45,7 +45,7 @@ plot_sims <- function(df, exp_div) {
     geom_errorbar(aes(ymin = q025, ymax = q975), width = 0.5) +
     geom_hline(yintercept = exp_div, linetype = 2) +
     xlab('Sample size') +
-    ylim(0, 0.10) +
+    ylim(0, 0.20) +
     plot_theme
   
   # return plot
@@ -83,7 +83,7 @@ readr::write_csv(hudson.fst, "simulation_results_fst_huds.csv")
 readr::write_csv(wc.fst, "simulation_results_fst_wc.csv")
 
 # plot results
-exp.div <- expected_divergence(ne = 20000, migr = 0.00025)
+exp.div <- expected_divergence(ne = 10000, migr = 0.00025)
 p.huds <- plot_sims(hudson.fst, exp.div) + 
   ggtitle('A') + 
   ylab(expression(italic("F")[ST]))
