@@ -2,9 +2,9 @@
 A collection of scripts used for assessing how many samples are required to reliably estimate genetic differentiation given a certain effective population size and migration rate. The analysis revolves around simulating RAD-like data under a simple two-population island model for a range of sample sizes using `msprime`. For each sample size, genetic differentiation between the two simulated populations is estimated using `scikit-allel`. 
 
 ## Dependencies
-- Python3 is required to run `generate_sim_tables.py`, along with the `msprime`, `scikit-allel`, `numpy` and `pandas` Python packages.
+- Python3 is required to run `generate_sim_tables.py`, along with the `msprime (ver. 0.7.4)`, `scikit-allel (ver. 1.3.2)`, `numpy (ver 1.20.0)` and `pandas (ver. 1.2.1)` Python packages.
 - `run_sims.sh` is intended to run on a High Performance Computing cluster with SLURM.  
-- `summarize_sims.R` requires the `tidyverse`, `Cairo` and `gridExtra` R packages. 
+- `summarize_sims.R` requires the `tidyverse (ver. 1.3.0)`, `Cairo (ver. 1.5-12.2)` and `gridExtra (ver. 2.3)` R packages. 
 
 ## Instructions
 The `run_sims.sh` script is a wrapper for `generate_sim_tables.py` that reads a tab-delimited input file (`sim_r1000.txt`) containing different parameter sets on each line and starts a SLURM array job for each parameter set. It can be executed using:
