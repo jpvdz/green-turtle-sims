@@ -21,6 +21,7 @@ The `-i` flag sets the job ID and appends this number to the output file in the 
 
 To combine different output files, you can simply use:
 
-`cat sim_r1000/simulation_table_n*.csv > simulation_table.csv`
+`head -n1 sim_r1000/simulation_table_n01.csv > sim_r1000/simulation_table.csv`
+`for i in sim_r1000/simulation_table_n*; do tail -n+2 $i >> sim_r1000/simulation_table.csv; done`
 
 The resulting file can be analyzed using `summarize_sims.sh`, which summarizes the simulation results and generates plots.  
