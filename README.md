@@ -24,4 +24,4 @@ To combine different output files, you can simply use:
 `head -n1 sim_r1000/simulation_table_n01.csv > sim_r1000/simulation_table.csv`
 `for i in sim_r1000/simulation_table_n*; do tail -n+2 $i >> sim_r1000/simulation_table.csv; done`
 
-The resulting file can be analyzed using `summarize_sims.sh`, which summarizes the simulation results and generates plots.  
+The resulting file can be analyzed using `summarize_sims.R`, which summarizes the simulation results and generates plots.  
