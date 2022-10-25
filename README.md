@@ -1,17 +1,22 @@
 # Assessing minimum sample sizes *in silico*
-A collection of scripts used for assessing how many samples are required to reliably estimate genetic differentiation given a certain effective population size and migration rate. The analysis revolves around simulating RAD-like data under a simple two-population island model for a range of sample sizes using `msprime`. For each sample size, genetic differentiation between the two simulated populations is estimated using `scikit-allel`. 
+
+A collection of scripts used in [Van der Zee et al. (2021)](https://www.nature.com/articles/s41437-021-00475-0) for assessing how many samples are required to reliably estimate genetic differentiation given a certain effective population size and migration rate. The analysis revolves around simulating RAD-like data under a simple two-population island model for a range of sample sizes using `msprime`. For each sample size, genetic differentiation between the two simulated populations is estimated using `scikit-allel`.
 
 ## Dependencies
-- Python3 is required to run `generate_sim_tables.py`, along with the `msprime (ver. 0.7.4)`, `scikit-allel (ver. 1.3.2)`, `numpy (ver 1.20.0)` and `pandas (ver. 1.2.1)` Python packages.
+
+- Python3 is required to run `generate_sim_tables.py`, along with the `msprime` (version 0.7.4), `scikit-allel` (version 1.3.2), `numpy` (version 1.20.0) and `pandas` (version 1.2.1) Python packages.
 - `run_sims.sh` is intended to run on a High Performance Computing cluster with SLURM.  
-- `summarize_sims.R` requires the `tidyverse (ver. 1.3.0)`, `Cairo (ver. 1.5-12.2)` and `gridExtra (ver. 2.3)` R packages. 
+- `summarize_sims.R` requires the `tidyverse` (version 1.3.0), `Cairo` (version 1.5-12.2) and `gridExtra` (version 2.3) R packages.
+
+Later package versions will *probably* work without too much tweaking (with the exception of `msprime`).
 
 ## Instructions
+
 The `run_sims.sh` script is a wrapper for `generate_sim_tables.py` that reads a tab-delimited input file (`sim_r1000.txt`) containing different parameter sets on each line and starts a SLURM array job for each parameter set. It can be executed using:
 
 `sbatch --array=1-15 run_sims.sh -i sim_r1000.txt`
 
-The first column in the input file is the *number of simulations* to perform for a set of parameters, the second the *diploid effective population size*, the third the *migration rate*, the fourth the *sample size*, the fifth the *mutation rate*, the sixth the *size of the DNA fragment* and the seventh column is the *number of loci* to simulate.   
+The first column in the input file is the *number of simulations* to perform for a set of parameters, the second the *diploid effective population size*, the third the *migration rate*, the fourth the *sample size*, the fifth the *mutation rate*, the sixth the *size of the DNA fragment* and the seventh column is the *number of loci* to simulate.
 
 The core of the analysis is `generate_sim_tables.py`, which performs the simulations and estimations. It can be run without the wrapper like this:
 
@@ -25,3 +30,7 @@ To combine different output files, you can simply use:
 `for i in sim_r1000/simulation_table_n*; do tail -n+2 $i >> sim_r1000/simulation_table.csv; done`
 
 The resulting file can be analyzed using `summarize_sims.R`, which summarizes the simulation results and generates plots.  
+
+## Archival notice
+
+This repository has been archived because the paper is now published (DOI: [10.1038/s41437-021-00475-0](https://doi.org/10.1038/s41437-021-00475-0)).
