@@ -33,4 +33,4 @@ The resulting file can be analyzed using `summarize_sims.R`, which summarizes th
 
 ## Archival notice
 
-This repository has been archived because the paper is now published (DOI: [10.1038/s41437-021-00475-0](https://doi.org/10.1038/s41437-021-00475-0)).
+This repository was archived because the associated paper has been published (DOI: [10.1038/s41437-021-00475-0](https://doi.org/10.1038/s41437-021-00475-0)).
